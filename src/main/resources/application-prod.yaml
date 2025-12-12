@@ -1,0 +1,39 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /offline-sync-service
+
+spring:
+  datasource:
+    url: jdbc:postgresql://10.106.99.148:5432/offline_sync_db
+    username: admin
+    password: Seneaudb2025
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 3
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    host: 10.106.99.148
+    port: 5672
+    username: admin
+    password: Sene@uRabbit2025
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+    template:
+      mandatory: true
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true

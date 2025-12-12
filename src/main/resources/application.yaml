@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: offline-sync-service
+
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus, info
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.seneau.sync: DEBUG
+    org.springframework.amqp: DEBUG
+    org.springframework.messaging: DEBUG
+    org.springframework.amqp.rabbit.core.RabbitTemplate: DEBUG
