@@ -1,4 +1,4 @@
-package com.seneau.offline_sync_service.entity;
+package com.seneau.offline_sync_service.data.model;
 
 import lombok.Getter;
 
